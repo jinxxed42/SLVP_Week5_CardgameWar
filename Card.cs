@@ -8,10 +8,19 @@ namespace SLVP_Week5_CardgameWar
 {
     internal class Card
     {
-        public int Value { get; set; }
+        //public int Value { get; set; }
+        public CardValue Value { get; set; }
         public CardSuit Suit { get; set; }
 
+        /**
         public Card(int value, CardSuit suit)
+        {
+            Value = value;
+            Suit = suit;
+        }
+        **/
+
+        public Card(CardValue value, CardSuit suit)
         {
             Value = value;
             Suit = suit;
@@ -20,12 +29,30 @@ namespace SLVP_Week5_CardgameWar
 
     enum CardSuit
     {
-        Club,
-        Diamond,
-        Heart,
-        Spade
+        Clubs,
+        Diamonds,
+        Hearts,
+        Spades
     }
 
+    enum CardValue
+    {
+        Ace,
+        Two,
+        Three,
+        Four,
+        Five,
+        Six,
+        Seven,
+        Eight,
+        Nine,
+        Ten,
+        Jack,
+        Queen,
+        King
+    }
+
+    /**
     enum CardName
     {
         Ace,
@@ -33,4 +60,5 @@ namespace SLVP_Week5_CardgameWar
         Queen,
         King
     }
+    **/
 }
