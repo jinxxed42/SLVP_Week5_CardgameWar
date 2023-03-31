@@ -12,25 +12,23 @@ namespace SLVP_Week5_CardgameWar
         private Card[] deck;
         private int deckIndex;
 
+        // Let's remove Result and integrate the properties in Game.cs!
 
-        public Card Player1Card { get; private set; } // Åndsvagt både at have den tilgængelig her og i Result klassen!
+        public Card Player1Card { get; private set; }
         public Card Player2Card { get; private set; }
+        public string RoundWinner { get; private set; }
         public int Player1Score { get; private set; }
         public int Player2Score { get; private set; }
 
-        // We don't want the deck array to have a public get since you can modify it then, so we only
-        // give access to the deck.Length through the RemainingCards property.
-        public int RemainingCards
-        {
-            get { return deck.Length; }
-        }
+        public bool GameOver { get; private set; }
+
+        public string GameWinner { get; private set; }
+
 
         static Random rand = new Random();
 
-
         public Game()
         {
-            //FillDeck();
         }
 
         public void FillDeck()
@@ -49,27 +47,9 @@ namespace SLVP_Week5_CardgameWar
                     deckIndex++;
                 }
             }
-
-            /**
-            for (int i = 1; i <= 13; i++)
-            {
-                Card cClub = new Card(i, CardSuit.Club);
-                deck[deckIndex] = cClub;
-                deckIndex++;
-                Card cDiamond = new Card(i, CardSuit.Diamond);
-                deck[deckIndex] = cDiamond;
-                deckIndex++;
-                Card cHeart = new Card(i, CardSuit.Heart);
-                deck[deckIndex] = cHeart;
-                deckIndex++;
-                Card cSpade = new Card(i, CardSuit.Spade);
-                deck[deckIndex] = cSpade;
-                deckIndex++;
-            }
-            **/
         }
 
-
+        /**
         public void ShowDeck()
         {
             foreach (Card c in deck)
@@ -78,7 +58,9 @@ namespace SLVP_Week5_CardgameWar
             }
             
         }
-        
+        **/
+
+        /**
         public void RunDeck()
         {
             for (int i = 0; i < 52; i++)
@@ -88,7 +70,7 @@ namespace SLVP_Week5_CardgameWar
             }
             
         }
-
+        **/
 
         // RIMELIGT LOONKE!!! LAV EN LISTE VERSION OGSÅ!!! Eller måske en dictionary version med suits som keys??
         // AT TESTE LÅRTET!!!
@@ -104,8 +86,6 @@ namespace SLVP_Week5_CardgameWar
             return c;
         }
         
-
-        // HVAD MED AT LAVE ET SCORE ELLER STANDINGS OBJEKT OG SÅ RETURNERE DET???
         public Result PlayRound()
         {
             Player1Card = SelectCard();
@@ -132,27 +112,6 @@ namespace SLVP_Week5_CardgameWar
                 result = "Draw";
                 //return new Result("Draw", false);
             }
-            /**
-            if (deck.Length != 0)
-            {
-                return new Result(result, false, Player1Card, Player2Card);
-            }
-            else
-            {
-                if (Player1Score > Player2Score)
-                {
-                    return new Result(result, true, "Player1", Player1Card, Player2Card);
-                }
-                else if (Player1Score < Player2Score)
-                {
-                    return new Result(result, true, "Player2", Player1Card, Player2Card);
-                }
-                else
-                {
-                    return new Result(result, true, "Draw", Player1Card, Player2Card);
-                }
-            }
-            **/
 
             if (deck.Length != 0)
             {
@@ -173,16 +132,6 @@ namespace SLVP_Week5_CardgameWar
                     return new Result(result, true, "Draw");
                 }
             }
-
-            //System.Diagnostics.Debug.WriteLine("SOME OUTPUT DILLS PLAYROUND!");
-
-            //form.Update();
-
-
-            // MÅSKE TRÆKKE TO KORT, GEMME KORT UND ALLES HERI MED PUBLIC GETS OG SÅ HENTE LORTET, HVER GANG DER TRYKKES PLAY???
-
-
-
         }
 
     }

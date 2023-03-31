@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace SLVP_Week5_CardgameWar
 {
+
+    // MÅSKE REDUCER STØRRELSE PÅ STRINGS OG KØR STRUCT?!
     internal class Result
     {
         public string Winner { get; private init; }
