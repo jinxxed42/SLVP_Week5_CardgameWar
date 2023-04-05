@@ -6,7 +6,23 @@ namespace SLVP_Week5_CardgameWar
 
         public Form1()
         {
-            InitializeComponent();        
+            InitializeComponent();
+            //tlp1
+            //tlp1.RowCount = 1;
+            //tlp1.ColumnCount = 1;
+            //Panel pnl1 = new Panel();
+            //this.Controls.Add(pnl1);
+            List<PlayerControl> playerControls = new List<PlayerControl>();
+            
+            foreach (Player p in g.players) 
+            {
+                PlayerControl playerControl = new PlayerControl(p);
+                playerControls.Add(playerControl);
+                //tlp1.Controls.Add(playerControl);
+                pnl1.Controls.Add(playerControl);
+            }
+            //tlp1.Show();
+            //pnl1.Show();
         }
 
         private void btnPlay_Click(object sender, EventArgs e)
