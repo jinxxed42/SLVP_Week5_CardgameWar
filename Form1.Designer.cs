@@ -34,8 +34,7 @@
             this.tbPlayer2 = new System.Windows.Forms.TextBox();
             this.lblPlayer1 = new System.Windows.Forms.Label();
             this.lblPlayer2 = new System.Windows.Forms.Label();
-            this.tlp1 = new System.Windows.Forms.TableLayoutPanel();
-            this.pnl1 = new System.Windows.Forms.Panel();
+            this.dynamicPanel1 = new SLVP_Week5_CardgameWar.DynamicPanel();
             this.SuspendLayout();
             // 
             // btnPlay
@@ -89,33 +88,19 @@
             this.lblPlayer2.TabIndex = 5;
             this.lblPlayer2.Text = "Player2 points:";
             // 
-            // tlp1
+            // dynamicPanel1
             // 
-            this.tlp1.ColumnCount = 2;
-            this.tlp1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlp1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlp1.Location = new System.Drawing.Point(78, 309);
-            this.tlp1.Name = "tlp1";
-            this.tlp1.RowCount = 2;
-            this.tlp1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlp1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlp1.Size = new System.Drawing.Size(200, 100);
-            this.tlp1.TabIndex = 6;
-            // 
-            // pnl1
-            // 
-            this.pnl1.Location = new System.Drawing.Point(542, 293);
-            this.pnl1.Name = "pnl1";
-            this.pnl1.Size = new System.Drawing.Size(200, 100);
-            this.pnl1.TabIndex = 7;
+            this.dynamicPanel1.Location = new System.Drawing.Point(76, 247);
+            this.dynamicPanel1.Name = "dynamicPanel1";
+            this.dynamicPanel1.Size = new System.Drawing.Size(200, 100);
+            this.dynamicPanel1.TabIndex = 6;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.pnl1);
-            this.Controls.Add(this.tlp1);
+            this.Controls.Add(this.dynamicPanel1);
             this.Controls.Add(this.lblPlayer2);
             this.Controls.Add(this.lblPlayer1);
             this.Controls.Add(this.tbPlayer2);
@@ -137,7 +122,6 @@
         private TextBox tbPlayer2;
         private Label lblPlayer1;
         private Label lblPlayer2;
-        private TableLayoutPanel tlp1;
-        private Panel pnl1;
+        private DynamicPanel dynamicPanel1;
     }
 }

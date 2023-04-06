@@ -3,6 +3,7 @@ namespace SLVP_Week5_CardgameWar
     public partial class Form1 : Form
     {
         Game g = new Game();
+        //private DynamicPanel dynamicPanel;
 
         public Form1()
         {
@@ -12,6 +13,26 @@ namespace SLVP_Week5_CardgameWar
             //tlp1.ColumnCount = 1;
             //Panel pnl1 = new Panel();
             //this.Controls.Add(pnl1);
+
+            //DynamicPanel dynamicPanel = new DynamicPanel();
+            foreach (Player p in g.players)
+            {
+                PlayerControl userControl1 = new PlayerControl(p);
+                dynamicPanel1.AddControl(userControl1);
+
+            }
+            
+            //dynamicPanel.Location = new Point(10, 10);
+            //dynamicPanel.Size = new Size(200, 300); //trying in class ctor
+
+
+            //this.Controls.Add(dynamicPanel);
+
+            /**
+            UserControl1 userControl1 = new UserControl1();
+            dynamicPanel.AddControl(userControl1);
+            **/
+            /**
             List<PlayerControl> playerControls = new List<PlayerControl>();
             
             foreach (Player p in g.players) 
@@ -21,6 +42,7 @@ namespace SLVP_Week5_CardgameWar
                 //tlp1.Controls.Add(playerControl);
                 pnl1.Controls.Add(playerControl);
             }
+            **/
             //tlp1.Show();
             //pnl1.Show();
         }
