@@ -8,17 +8,8 @@ namespace SLVP_Week5_CardgameWar
 {
     internal class Card
     {
-        //public int Value { get; set; }
         public CardValue Value { get; set; }
         public CardSuit Suit { get; set; }
-
-        /**
-        public Card(int value, CardSuit suit)
-        {
-            Value = value;
-            Suit = suit;
-        }
-        **/
 
         public Card(CardValue value, CardSuit suit)
         {
