@@ -12,8 +12,6 @@ namespace SLVP_Week5_CardgameWar
     {
         private Card[] deck;
         private int deckIndex;
-        public List<Player> players;
-
         public Card Player1Card { get; private set; }
         public Card Player2Card { get; private set; }
         public string RoundWinner { get; private set; }
@@ -29,11 +27,6 @@ namespace SLVP_Week5_CardgameWar
 
         public Game()
         {
-            Player Player1 = new Player();
-            Player Player2 = new Player();
-            players = new List<Player>();
-            players.Add(Player1);
-            players.Add(Player2);
         }
 
         public void FillDeck()
