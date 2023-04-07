@@ -34,7 +34,6 @@
             this.tbPlayer2 = new System.Windows.Forms.TextBox();
             this.lblPlayer1 = new System.Windows.Forms.Label();
             this.lblPlayer2 = new System.Windows.Forms.Label();
-            this.dynamicPanel1 = new SLVP_Week5_CardgameWar.DynamicPanel();
             this.SuspendLayout();
             // 
             // btnPlay
@@ -88,19 +87,11 @@
             this.lblPlayer2.TabIndex = 5;
             this.lblPlayer2.Text = "Player2 points:";
             // 
-            // dynamicPanel1
-            // 
-            this.dynamicPanel1.Location = new System.Drawing.Point(76, 247);
-            this.dynamicPanel1.Name = "dynamicPanel1";
-            this.dynamicPanel1.Size = new System.Drawing.Size(200, 100);
-            this.dynamicPanel1.TabIndex = 6;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dynamicPanel1);
             this.Controls.Add(this.lblPlayer2);
             this.Controls.Add(this.lblPlayer1);
             this.Controls.Add(this.tbPlayer2);
@@ -122,6 +113,5 @@
         private TextBox tbPlayer2;
         private Label lblPlayer1;
         private Label lblPlayer2;
-        private DynamicPanel dynamicPanel1;
     }
 }

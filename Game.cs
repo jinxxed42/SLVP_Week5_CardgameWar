@@ -14,9 +14,6 @@ namespace SLVP_Week5_CardgameWar
         private int deckIndex;
         public List<Player> players;
 
-        // Let's remove Result and integrate the properties in Game.cs!
-        // Add player class? Player can then hold the cards and score for itself?
-
         public Card Player1Card { get; private set; }
         public Card Player2Card { get; private set; }
         public string RoundWinner { get; private set; }
@@ -32,41 +29,21 @@ namespace SLVP_Week5_CardgameWar
 
         public Game()
         {
-
-            System.Diagnostics.Debug.WriteLine("1 spiller: " + 52 * (int)Math.Ceiling(1 / 2.0)); //  52
-            System.Diagnostics.Debug.WriteLine("2 spiller: " + 52 * (int)Math.Ceiling(2 / 2.0)); //  52
-            System.Diagnostics.Debug.WriteLine("3 spiller: " + 52 * (int)Math.Ceiling(3 / 2.0)); // 104
-            System.Diagnostics.Debug.WriteLine("4 spiller: " + 52 * (int)Math.Ceiling(4 / 2.0)); // 104
-            System.Diagnostics.Debug.WriteLine("5 spiller: " + 52 * (int)Math.Ceiling(5 / 2.0)); // 156
-            System.Diagnostics.Debug.WriteLine("6 spiller: " + 52 * (int)Math.Ceiling(6 / 2.0)); // 156
-
-
             Player Player1 = new Player();
             Player Player2 = new Player();
             players = new List<Player>();
             players.Add(Player1);
             players.Add(Player2);
-            #region
-            //This is a region
-            #endregion
         }
 
         public void FillDeck()
         {
-            int deckSize = 52 * (int)Math.Ceiling(players.Count / 2.0); // Skal rundes op! VIRKER!! Så skal kortene bare fordeles, eller køres 26 runder.
-
+            GameOver = false;
             deck = new Card[52];
             deckIndex = 0;
 
-            foreach (Player p in players)
-            {
-                p.Score = 0;
-            }
-
             Player1Score = 0;
             Player2Score = 0;
-
-
 
             foreach (CardSuit cSuit in Enum.GetValues(typeof(CardSuit)))
             {
@@ -77,29 +54,6 @@ namespace SLVP_Week5_CardgameWar
                 }
             }
         }
-
-        /**
-        public void ShowDeck()
-        {
-            foreach (Card c in deck)
-            {
-                System.Diagnostics.Debug.WriteLine("Card is: " + c.Value + " of " + c.Suit);
-            }
-            
-        }
-        **/
-
-        /**
-        public void RunDeck()
-        {
-            for (int i = 0; i < 52; i++)
-            {
-                Card c = SelectCard();
-                System.Diagnostics.Debug.WriteLine("Card number " + (i+1) + ": " + c.Value + " of " + c.Suit + " | Cards left: " + deck.Length);
-            }
-            
-        }
-        **/
 
         public Card SelectCard()
         {
@@ -113,53 +67,44 @@ namespace SLVP_Week5_CardgameWar
             return c;
         }
         
-        public Result PlayRound()
+        public void PlayRound()
         {
             Player1Card = SelectCard();
             Player2Card = SelectCard();
 
-            string result = "";
-
             if (Player1Card.Value > Player2Card.Value)
             {
                 Player1Score += 2;
-                result = "Player1";
-                //return new Result("Player1", false);
+                RoundWinner = "Player1";
             }
             else if (Player1Card.Value < Player2Card.Value)
             {
                 Player2Score += 2;
-                result = "Player2";
-                //return new Result("Player2", false);
+                RoundWinner = "Player2";
             }
             else
             {
                 Player1Score++;
                 Player2Score++;
-                result = "Draw";
-                //return new Result("Draw", false);
+                RoundWinner = "Draw";
             }
 
-            if (deck.Length != 0)
-            {
-                return new Result(result, false);
-            }
-            else
-            {
+            if (deck.Length == 0)
+            {         
+                GameOver = true;
                 if (Player1Score > Player2Score)
-                {
-                    return new Result(result, true, "Player1");
+                {                   
+                    GameWinner = "Player1";
                 }
                 else if (Player1Score < Player2Score)
                 {
-                    return new Result(result, true, "Player2");
+                    GameWinner = "Player2";
                 }
                 else
                 {
-                    return new Result(result, true, "Draw");
+                    GameWinner = "Draw";
                 }
             }
         }
-
     }
 }
