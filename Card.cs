@@ -42,14 +42,4 @@ namespace SLVP_Week5_CardgameWar
         Queen,
         King
     }
-
-    /**
-    enum CardName
-    {
-        Ace,
-        Jack,
-        Queen,
-        King
-    }
-    **/
 }
